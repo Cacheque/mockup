@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchentes no Rio Grande do Sul - O que fazer?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        header {
+            background-color: #004d99;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #004d99;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .region-info {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .box-region{
+            border: 1px solid #e7e7e7;
+            background: #F7F3E3;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            border:#003E8A !important;
+        }
+        .bt-blue{
+            background-color: #003E8A;
+        }
+        .title-blue{color: #004d99;}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Programa de Apoio ao Rio Grande do Sul</h1>
+    <h5>Encontre aqui medidas nas enchentes no Rio Grande do Sul</h5>
+</header>
+
+<div class="container mt-4">
+    <div class="section mb-4">
+        <h2 class="title-blue">Antes da Enchente - Prevenção</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Monitore as condições climáticas: Ter informações atualizadas sobre previsões de chuva e alertas meteorológicos ajuda a se preparar. Divulgue aplicativos e sites confiáveis.</li>
+            <li class="list-group-item">Evite construir em áreas de risco: Residências e estabelecimentos em áreas baixas ou próximas a rios têm maior risco. Incentive a população a consultar mapas de risco.</li>
+            <li class="list-group-item">Crie um plano de emergência: Esteja preparado para evacuação e crie rotas de fuga seguras. Oriente os usuários do site a terem uma mochila com itens essenciais (documentos, água, comida, remédios).</li>
+            <li class="list-group-item">Cuide da limpeza de bueiros e canais: Incentive o envolvimento da comunidade em campanhas de limpeza para prevenir entupimentos e garantir o escoamento de água.</li>
+        </ul>
+    </div>
+
+    <div class="section mb-4">
+        <h2 class="title-blue">Durante a Enchente - Ações Imediatas</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Evite áreas alagadas: o contato com a água da enchente pode ser perigoso e esconder objetos cortantes ou contaminantes.</li>
+            <li class="list-group-item">Desligue as fontes de energia: para prevenir choques elétricos, desligue a eletricidade antes de evacuar a residência.</li>
+            <li class="list-group-item">Procure abrigo em locais elevados, como prédios públicos, escolas ou ginásios, que costumam oferecer refúgio seguro.</li>
+            <li class="list-group-item">Mantenha-se informado: acompanhe as atualizações e instruções das autoridades por meio de rádios e canais oficiais de comunicação.</li>
+        </ul>
+    </div>
+    
+    <div class="section mb-4">
+        <h2 class="title-blue">Após a Enchente - Recuperação</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Evite voltar para casa imediatamente: Aguarde a liberação da área pelas autoridades para garantir a segurança.</li>
+            <li class="list-group-item">Cuide da saúde: Verifique a necessidade de vacinas e esteja atento aos riscos de doenças transmitidas pela água.</li>
+            <li class="list-group-item">Limpeza e cuidados sanitários: Utilize equipamentos de proteção, como luvas e botas, e siga orientações de desinfecção para evitar contaminações.</li>
+            <li class="list-group-item">Apoio e assistência: Busque locais de assistência para receber água potável, alimentos e apoio psicológico.</li>
+        </ul>
+    </div>
+    
+    <section class="region-selection text-center mb-4">
+        <h2 class="title-blue">Escolha a Região:</h2>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-success" onclick="showInfo('norte')" style="margin: 10px; border-radius: 10px;">Norte</button>
+            <button type="button" class="btn btn-success" onclick="showInfo('sul')" style="margin: 10px; border-radius: 10px;">Sul</button>
+            <button type="button" class="btn btn-success" onclick="showInfo('leste')" style="margin: 10px; border-radius: 10px;">Leste</button>
+            <button type="button" class="btn btn-success" onclick="showInfo('oeste')" style="margin: 10px; border-radius: 10px;">Oeste</button>
+        </div>
+    </section>
+
+    <section id="region-info" class="region-info mb-4 box-region">
+        <h2 class="title-blue">Informações da Região</h2>
+        <p>Selecione uma região para ver detalhes sobre o contexto de enchentes, focando em características específicas e recomendações de ações de segurança, alertas meteorológicos, áreas seguras de abrigo e apoio e recursos locais para residentes e visitantes.</p>
+    </section>
+
+    <div class="section mb-4">
+        <h2 class="title-blue">Monitoramento em Tempo Real dos Rios</h2>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.saladesituacao.rs.gov.br/" title="Mapa de Monitoramento Hidrológico"></iframe>
+        </div>
+    </div>
+    
+    <section class="forms-section row mb-4">
+        <div class="form-container col-md-6 mb-4">
+            <h3>Inscreva-se para Alertas Meteorológicos</h3>
+            <form id="alertForm">
+                <div class="mb-3">
+                    <label for="region" class="form-label">Selecione sua região:</label>
+                    <select id="region" name="region" class="form-select" required>
+                        <option value="norte">Norte</option>
+                        <option value="sul">Sul</option>
+                        <option value="leste">Leste</option>
+                        <option value="oeste">Oeste</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="contact" class="form-label">Contato (E-mail ou SMS):</label>
+                    <input type="email" id="contact" name="contact" class="form-control" placeholder="Seu e-mail ou número de telefone" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 bt-blue">Inscrever</button>
+            </form>
+            <p id="formResponse" class="mt-3 text-success"></p>
+        </div>
+        <div class="form-container col-md-6">
+            <h3>Relate uma Enchente</h3>
+            <form id="floodReportForm">
+                <div class="mb-3">
+                    <label for="location" class="form-label">Localização:</label>
+                    <input type="text" id="location" name="location" class="form-control" placeholder="Digite o nome da cidade ou bairro" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descrição:</label>
+                    <textarea id="description" name="description" class="form-control" placeholder="Descreva a situação..." required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="file" class="form-label">Enviar uma foto:</label>
+                    <input type="file" id="file" name="file" class="form-control" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 bt-blue">Enviar Relatório</button>
+            </form>
+            <p id="reportResponse" class="mt-3 text-success"></p>
+        </div>
+    </section>
+    
+    <div class="section mb-4">
+        <h2>Contatos de Emergência</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Defesa Civil: 199</li>
+            <li class="list-group-item">Bombeiros: 193</li>
+            <li class="list-group-item">Polícia Militar: 190</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>Enchentes no Rio Grande do Sul - Informações importantes para sua segurança</p>
+    <p class="text-center"><h6>© 2024 Todos os direitos reservados.</h6></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('floodReportForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('reportResponse').textContent = "Relatório enviado com sucesso! Obrigado pela sua contribuição.";
+    });
+    function showInfo(region) {
+        const regionInfo = {
+            norte: "Informações sobre a região Norte...",
+            sul: "Informações sobre a região Sul...",
+            leste: "Informações sobre a região Leste...",
+            oeste: "Informações sobre a região Oeste..."
+        };
+        document.getElementById('region-info').innerHTML = `
+            <h2>Informações da Região ${region.charAt(0).toUpperCase() + region.slice(1)}</h2>
+            <p>${regionInfo[region]}</p>
+        `;
+    }
+</script>
+
+</body>
+</html>
